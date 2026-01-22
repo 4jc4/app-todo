@@ -98,3 +98,75 @@ export const textVariants = cva('font-sans text-gray-400', {
     variant: 'body-md',
   },
 })
+
+export const btnVariants = cva(
+  `
+    flex items-center justify-center cursor-pointer
+    transition rounded-lg group gap-2
+  `,
+  {
+    variants: {
+      variant: {
+        primary: 'bg-gray-200 hover:bg-pink-light',
+      },
+      size: {
+        md: 'h-14 py-4 px-5',
+      },
+      disabled: {
+        true: 'opacity-50 pointer-events-none',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
+      disabled: false,
+    },
+  },
+)
+
+export const btnIconVariants = cva('transition', {
+  variants: {
+    variant: {
+      primary: 'fill-pink-base',
+    },
+    size: {
+      md: 'w-5 h-5',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
+})
+
+export const btnTextVariants = cva('', {
+  variants: {
+    variant: {
+      primary: 'text-gray-400',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
+})
+
+export const inputTextVariants = cva(
+  `
+    border-b border-solid border-gray-200 focus:border-pink-base
+    bg-transparent outline-none
+  `,
+  {
+    variants: {
+      size: {
+        md: 'pb-2 px-2',
+      },
+      disabled: {
+        true: 'pointer-events-none',
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+      disabled: false,
+    },
+  },
+)
