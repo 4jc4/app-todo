@@ -27,7 +27,6 @@ export default function Text({
   children,
   ...props
 }: TextProps) {
-  console.log(textVariants({ variant }))
   return createElement(
     as,
     { className: textVariants({ variant, className }), ...props },
