@@ -5,6 +5,7 @@ export const badgeVariants = cva(
   {
     variants: {
       variant: {
+        none: '',
         primary: 'bg-green-light',
         secondary: 'bg-pink-light',
       },
@@ -22,12 +23,24 @@ export const badgeVariants = cva(
 export const badgeTextVariants = cva('', {
   variants: {
     variant: {
+      none: '',
       primary: 'text-green-dark',
       secondary: 'text-pink-dark',
     },
   },
   defaultVariants: {
     variant: 'primary',
+  },
+})
+
+export const badgeSkeletonVariants = cva('', {
+  variants: {
+    size: {
+      sm: 'w-6 h-6',
+    },
+  },
+  defaultVariants: {
+    size: 'sm',
   },
 })
 
@@ -38,6 +51,7 @@ export const buttonIconVariants = cva(
   {
     variants: {
       variant: {
+        none: '',
         primary: 'bg-green-base hover:bg-green-dark',
         secondary: 'bg-gray-200 hover:bg-pink-base',
         tertiary: 'bg-transparent hover:bg-gray-200',
@@ -60,6 +74,7 @@ export const buttonIconVariants = cva(
 export const buttonIconIconVariants = cva('transition', {
   variants: {
     variant: {
+      none: '',
       primary: 'fill-white',
       secondary: 'fill-pink-base group-hover:fill-white',
       tertiary: 'fill-gray-300 group-hover:fill-gray-400',
@@ -178,13 +193,19 @@ export const inputCheckboxWrapperVariants = cva(`
 export const inputCheckboxVariants = cva(
   `
   appearance-none peer flex items-center justify-center cursor-pointer
-  border-2 border-solid transition overflow-hidden border-green-base
-  hover:border-green-dark hover:bg-green-dark/20
-  checked:border-green-base checked:bg-green-base
-  group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
+  transition overflow-hidden
 `,
   {
     variants: {
+      variant: {
+        none: '',
+        default: `
+        border-2 border-solid border-green-base
+      hover:border-green-dark hover:bg-green-dark/20
+      checked:border-green-base checked:bg-green-base
+      group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
+        `,
+      },
       size: {
         md: 'w-5 h-5 rounded-sm',
       },
@@ -193,6 +214,7 @@ export const inputCheckboxVariants = cva(
       },
     },
     defaultVariants: {
+      variant: 'default',
       size: 'md',
       disabled: false,
     },
@@ -244,3 +266,21 @@ export const containerVariants = cva('mx-auto', {
     size: 'md',
   },
 })
+
+export const skeletonVariants = cva(
+  `
+    animate-pulse bg-gray-200 pointer-events-none
+  `,
+  {
+    variants: {
+      rounded: {
+        sm: 'rounded-sm',
+        lg: 'rounded-lg',
+        full: 'rounded-full',
+      },
+    },
+    defaultVariants: {
+      rounded: 'lg',
+    },
+  },
+)
