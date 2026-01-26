@@ -10,7 +10,7 @@ import InputText from '../components/input-text'
 import Text from '../components/text'
 
 export default function TaskItem() {
-  const [isEditing, setIsEditing] = React.useState(true)
+  const [isEditing, setIsEditing] = React.useState(false)
 
   function handleEditTask() {
     setIsEditing(true)
