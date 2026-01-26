@@ -18,10 +18,14 @@ export default function Button({
   icon: IconComponent,
   ...props
 }: ButtonProps) {
+  const { type = 'button', ...rest } = props
+
   return (
     <button
       className={btnVariants({ className, disabled, size, variant })}
-      {...props}
+      disabled={!!disabled}
+      type={type}
+      {...rest}
     >
       {IconComponent && (
         <Icon

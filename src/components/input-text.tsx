@@ -18,6 +18,7 @@ export default function InputText({
         textVariants(),
         className,
       )}
+      disabled={!!disabled}
       {...props}
     />
   )

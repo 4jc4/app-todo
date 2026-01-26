@@ -106,7 +106,7 @@ export const textVariants = cva('font-sans text-gray-400', {
     variant: {
       'body-sm-bold': 'text-sm leading-5 font-semibold',
       'body-md': 'text-base leading-6 font-normal',
-      'body-md-bold': 'text-bold leading-6 font-semibold',
+      'body-md-bold': 'text-base leading-6 font-semibold',
     },
   },
   defaultVariants: {
@@ -259,7 +259,7 @@ export const cardVariants = cva(
 export const containerVariants = cva('mx-auto', {
   variants: {
     size: {
-      md: 'max-w-126 px-2',
+      md: 'max-w-[31.5rem] px-2',
     },
   },
   defaultVariants: {

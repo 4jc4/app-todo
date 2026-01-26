@@ -19,6 +19,8 @@ export default function ButtonIcon({
   icon,
   ...props
 }: ButtonIconProps) {
+  const { type = 'button', ...rest } = props
+
   if (loading) {
     return (
       <Skeleton
@@ -31,7 +33,9 @@ export default function ButtonIcon({
   return (
     <button
       className={buttonIconVariants({ className, variant, size, disabled })}
-      {...props}
+      disabled={!!disabled}
+      type={type}
+      {...rest}
     >
       <Icon className={buttonIconIconVariants({ size, variant })} svg={icon} />
     </button>

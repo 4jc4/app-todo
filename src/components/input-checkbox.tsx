@@ -36,6 +36,7 @@ export default function InputCheckbox({
       <input
         type="checkbox"
         className={inputCheckboxVariants({ variant, size, disabled })}
+        disabled={!!disabled}
         {...props}
       />
       <Icon className={inputCheckboxIconVariants({ size })} svg={CheckIcon} />
