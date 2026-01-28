@@ -1,4 +1,5 @@
 import type { VariantProps } from 'class-variance-authority'
+import SpinnerIcon from '../assets/icons/spinner.svg?react'
 import Icon from './icon'
 import Skeleton from './skeleton'
 import { buttonIconIconVariants, buttonIconVariants } from './variants'
@@ -8,6 +9,7 @@ interface ButtonIconProps
     VariantProps<typeof buttonIconVariants> {
   icon: React.ComponentProps<typeof Icon>['svg']
   loading?: boolean
+  handling?: boolean
 }
 
 export default function ButtonIcon({
@@ -16,6 +18,7 @@ export default function ButtonIcon({
   disabled,
   className,
   loading,
+  handling,
   icon,
   ...props
 }: ButtonIconProps) {
@@ -32,12 +35,22 @@ export default function ButtonIcon({
 
   return (
     <button
-      className={buttonIconVariants({ className, variant, size, disabled })}
+      className={buttonIconVariants({
+        className,
+        variant,
+        size,
+        disabled,
+        handling,
+      })}
       disabled={!!disabled}
       type={type}
       {...rest}
     >
-      <Icon className={buttonIconIconVariants({ size, variant })} svg={icon} />
+      <Icon
+        className={buttonIconIconVariants({ size, variant })}
+        animate={handling}
+        svg={handling ? SpinnerIcon : icon}
+      />
     </button>
   )
 }
